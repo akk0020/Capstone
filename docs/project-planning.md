@@ -22,3 +22,8 @@ https://app.mural.co/t/ak023189/m/ak023189/1742436802478/688bbfbec0efa584a75a476
 <!-- SWOT analysis -->
 
 https://docs.google.com/document/d/16nmXkpEVDzf_Iw-0Qlkecl6Zz_3TpUQ1oHS8Drt-KZ0/edit?usp=sharing
+
+<!-- TODO still -->
+<!-- User Flow diagram  -->
+<!-- Wireframes -->
+<!-- details for outline of content -->
