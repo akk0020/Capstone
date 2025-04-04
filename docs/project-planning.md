@@ -25,5 +25,5 @@ https://docs.google.com/document/d/16nmXkpEVDzf_Iw-0Qlkecl6Zz_3TpUQ1oHS8Drt-KZ0/
 
 <!-- TODO still -->
 <!-- User Flow diagram  -->
-<!-- Wireframes -->
+
 <!-- details for outline of content -->
