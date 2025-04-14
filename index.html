@@ -18,51 +18,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
   </head>
-  <body>
-    <header>
-      <section class="jumbotron">
-        <div class="jumbotron-content">
-          <h2>Welcome to My Capstone Website</h2>
-          <p>
-            Explore the world of web development through my projects and
-            passion!
-          </p>
-          <a href="#projects" class="cta-btn">See My Work</a>
-        </div>
-      </section>
-    </header>
-
-    <nav>
-      <div class="navbar-container">
-        <div class="logo">
-          <h1>My Capstone</h1>
-        </div>
-        <ul id="navbar" class="navbar">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="hamburger" id="hamburger">
-          <i class="fas fa-bars"></i>
-        </div>
-      </div>
-    </nav>
-
-    <main>
-      <h2>Welcome to My Website</h2>
-      <p>This is my capstone project homepage.</p>
-    </main>
-
-    <footer>
-      <p>&copy; AK Capstone 2025</p>
-    </footer>
-    <script>
-      const hamburger = document.getElementById("hamburger");
-      const navbar = document.getElementById("navbar");
-
-      hamburger.addEventListener("click", () => {
-        navbar.classList.toggle("active");
-      });
-    </script>
+  <body id="root">
+    <script type="module" src="index.js"></script>
   </body>
 </html>
