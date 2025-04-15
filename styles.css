@@ -177,7 +177,7 @@ footer {
   align-items: center;
   padding: 1rem;
   background: #050f4d;
-  position: relative;
+  /* position: relative; */
 }
 
 .navbar {

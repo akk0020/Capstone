@@ -8,7 +8,7 @@ export default state => html`
         <p>
           find local restaurants
         </p>
-        <a href="#bannerButton" class="cta-btn">a button</a>
+        <a href="#bannerButton" class="cta-btn">quick search?</a>
       </div>
     </section>
   </header>
