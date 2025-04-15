@@ -23,6 +23,12 @@ https://app.mural.co/t/ak023189/m/ak023189/1742436802478/688bbfbec0efa584a75a476
 
 https://docs.google.com/document/d/16nmXkpEVDzf_Iw-0Qlkecl6Zz_3TpUQ1oHS8Drt-KZ0/edit?usp=sharing
 
+<!-- Wire frames -->
+
+here are the wire frames
+![pg12](<planningImages/Wireframes Pg 1and2.jpg>)
+![pg34](<planningImages/Wireframes Pg 3and4.jpg>)
+
 <!-- TODO still -->
 <!-- User Flow diagram  -->
 
