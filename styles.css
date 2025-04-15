@@ -1,0 +1,257 @@
+/* General styles */
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+  background: #0a0843;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  padding: 0;
+  background: #555;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Main */
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+.homepage-bottom h2 {
+  font-family: poppins;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+.homepage-bottom p {
+  font-family: poppins;
+  font-size: 20px;
+  color: #666;
+  text-align: right;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* About Page */
+main p {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Contact Page */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  margin-top: 10px;
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #555;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  bottom: auto;
+  position: relative;
+  margin-top: 200px;
+}
+
+/* Medium Screens: Tablets and Up */
+@media (min-width: 600px) {
+  nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+  }
+
+  .hero {
+    padding: 50px 30px;
+  }
+
+  .bannerButton {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .project-card {
+    width: 45%;
+    margin: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Large Screens: Desktops and Up */
+@media (min-width: 1024px) {
+  nav ul {
+    text-align: left;
+    padding: 0 50px;
+  }
+
+  .hero {
+    padding: 70px 50px;
+  }
+
+  .projects {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .project-card {
+    width: 30%;
+  }
+
+  footer {
+    position: relative;
+    bottom: auto;
+  }
+}
+
+/* Navbar Styles */
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: #050f4d;
+  /* position: relative; */
+}
+
+.navbar {
+  .navbar {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+}
+
+.navbar li {
+  margin-left: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-family: monospace;
+  font-size: 18px;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  right: 1rem;
+  color: rgba(96, 86, 86, 0.916);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Jumbotron Styles */
+.jumbotron {
+  background: url("docs/images/banner.png") no-repeat center center/cover;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 100px 20px;
+  margin-bottom: 30px;
+}
+
+.jumbotron-content h2 {
+  font-size: 75px;
+  margin-bottom: 20px;
+}
+
+.jumbotron-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-btn {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.cta-btn:hover {
+  background-color: #555;
+}
