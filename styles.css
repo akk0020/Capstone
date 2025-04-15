@@ -8,10 +8,12 @@ body {
 
 /* Header */
 header {
-  background: #0c0b24;
+  background: #0a0843;
   color: white;
   text-align: center;
   padding: 1rem;
+  font-family: monospace;
+  font-size: 12px;
 }
 
 /* Navigation */
@@ -36,6 +38,22 @@ nav ul li a {
 main {
   padding: 20px;
   text-align: center;
+}
+
+.homepage-bottom h2 {
+  font-family: poppins;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+.homepage-bottom p {
+  font-family: poppins;
+  font-size: 20px;
+  color: #666;
+  text-align: right;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* About Page */
@@ -89,9 +107,9 @@ footer {
   color: white;
   text-align: center;
   padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  bottom: auto;
+  position: relative;
+  margin-top: 200px;
 }
 
 /* Medium Screens: Tablets and Up */
@@ -114,6 +132,15 @@ footer {
   .project-card {
     width: 45%;
     margin: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -146,16 +173,19 @@ footer {
 /* Navbar Styles */
 .navbar-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1rem;
-  background: #43388c;
+  background: #050f4d;
+  position: relative;
 }
 
 .navbar {
-  list-style: none;
-  padding: 0;
-  display: flex;
+  .navbar {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
 }
 
 .navbar li {
@@ -165,11 +195,15 @@ footer {
 .navbar a {
   color: white;
   text-decoration: none;
+  font-family: monospace;
+  font-size: 18px;
 }
 
 .hamburger {
   display: none;
   cursor: pointer;
+  right: 1rem;
+  color: rgba(96, 86, 86, 0.916);
 }
 
 /* Responsive Styles */
@@ -192,15 +226,15 @@ footer {
 
 /* Jumbotron Styles */
 .jumbotron {
-  background: url("docs/images/banner.jpg") no-repeat center center/cover;
-  color: white;
+  background: url("docs/images/banner.png") no-repeat center center/cover;
+  color: rgb(255, 255, 255);
   text-align: center;
   padding: 100px 20px;
   margin-bottom: 30px;
 }
 
 .jumbotron-content h2 {
-  font-size: 3rem;
+  font-size: 75px;
   margin-bottom: 20px;
 }
 

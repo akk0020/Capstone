@@ -4,17 +4,19 @@ export default state => html`
   <header>
     <section class="jumbotron">
       <div class="jumbotron-content">
-        <h2>Welcome to My Capstone Website</h2>
+        <h2>tasteLocal</h2>
         <p>
-          Still trying to figure out what to do here
+          find local restaurants
         </p>
         <a href="#bannerButton" class="cta-btn">a button</a>
       </div>
     </section>
   </header>
 
-  <div>
-    <h2>Welcome to My Website</h2>
-    <p>This is my capstone project homepage.</p>
+  <div class="homepage-bottom">
+    <h2>
+      tasteLocal is your go-to guide for finding local trusted restaurants.
+    </h2>
+    <p>taste something local</p>
   </div>
 `;

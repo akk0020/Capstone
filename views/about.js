@@ -3,7 +3,7 @@ import html from "html-literal";
 export default state => html`
   <h2>Who We Are</h2>
   <p>
-    Welcome to the About page! This website is part of my capstone project.
+    Welcome to ____
   </p>
   <p>
     Here, you'll learn more about my journey and the purpose of this project.

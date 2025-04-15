@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+// import restaurants from "./routers/restaurants.js";
 
 dotenv.config();
 
