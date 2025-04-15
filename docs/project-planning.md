@@ -29,7 +29,6 @@ here are the wire frames
 ![pg12](<planningImages/Wireframes Pg 1and2.jpg>)
 ![pg34](<planningImages/Wireframes Pg 3and4.jpg>)
 
-<!-- TODO still -->
 <!-- User Flow diagram  -->
 
-<!-- details for outline of content -->
+![User flow chart](<planningImages/User flow chart.jpg>)
