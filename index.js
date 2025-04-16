@@ -92,4 +92,6 @@ router
       }
     },
   })
-  .resolve(); //
+  .resolve();
+
+// https://www.themealdb.com/api.php maybe use this for API? ehhhhh
