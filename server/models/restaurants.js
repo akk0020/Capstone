@@ -23,6 +23,7 @@ const restSchema = new mongoose.Schema({
   },
   anothertopic: {
     type: String,
+  },
 });
 
 const restaurants = mongoose.model("restaurant", restSchema);
