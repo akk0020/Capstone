@@ -4,12 +4,12 @@ const restSchema = new mongoose.Schema({
   restaurantName: {
     type: String,
     required: true,
-    validate: /^[A-Za-z0-9,."-_ ]*$/,
+    validate: /^[A-Za-z0-9 ]*$/,
   },
   location: {
     type: String,
     required: true,
-    validate: /^[A-Za-z0-9.,-' ]*$/,
+    validate: /^[A-Za-z0-9 ]*$/,
   },
   type: {
     type: String,
