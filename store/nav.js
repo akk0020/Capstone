@@ -2,5 +2,5 @@ export default [
   { url: "/home", text: "Home" },
   { url: "/about", text: "About" },
   { url: "/contact", text: "Contact" },
-  { url: "/restaurants", text: "FindRestaurants" },
+  { url: "/restaurant", text: "FindRestaurants" },
 ];

@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import restaurants from "./routers/restaurants.js";
+import restaurants from "./routers/Restaurants.js";
 
 dotenv.config();
 
@@ -43,7 +43,7 @@ const cors = (request, response, next) => {
 app.use(cors);
 app.use(express.json());
 app.use(logging);
-// app.use("/restaurants", restaurants);
+app.use("/restaurants", restaurants);
 
 app.get("/status", (request, response) => {
   response.send(JSON.stringify({ message: "Service healthy" }));

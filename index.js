@@ -1,8 +1,8 @@
-import * as components from "./components";
 import { header, nav, main, footer } from "./components";
 import * as store from "./store";
 import Navigo from "navigo";
 import { camelCase } from "lodash";
+import axios from "axios";
 
 const router = new Navigo("/");
 
@@ -26,7 +26,101 @@ function attachNavToggle() {
   }
 }
 
-render();
+router.hooks({
+  // We pass in the `done` function to the before hook handler to allow the function to tell Navigo we are finished with the before hook.
+  // The `match` parameter is the data that is passed from Navigo to the before hook handler with details about the route being accessed.
+  // https://github.com/krasimir/navigo/blob/master/DOCUMENTATION.md#match
+  before: (done, match) => {
+    // We need to know what view we are on to know what data to fetch
+    const view = match?.data?.view ? camelCase(match.data.view) : "home";
+    // Add a switch case statement to handle multiple routes
+    switch (view) {
+      // Add a case for each view that needs data from an API
+      // New Case for the Home View
+      case "home":
+        // Get request to retrieve the current weather data using the API key and providing a city name
+        axios
+          .get(`${process.env.API_URL}/status`)
+          .then(response => {
+            console.log("response.data", response.data);
+
+            done();
+          })
+          .catch(err => {
+            console.log(err);
+            done();
+          });
+        break;
+
+        // New Axios get request utilizing already made environment variable
+        axios
+          .get(`${process.env.API_URL}/restaurants`)
+          .then(response => {
+            // Storing retrieved data in state
+            // The dot chain variable access represents the following {storeFolder.stateFileViewName.objectAttribute}
+            store.restaurant.restaurants = response.data;
+            console.log(
+              "store.restaurant.restaurants",
+              store.restaurant.restaurants
+            );
+            done();
+          })
+          .catch(error => {
+            console.log("It puked", error);
+            done();
+          });
+        break;
+      default:
+        // We must call done for all views so we include default for the views that don't have cases above.
+        done();
+      // break is not needed since it is the last condition, if you move default higher in the stack then you should add the break statement.
+    }
+  },
+  already: match => {
+    const view = match?.data?.view ? camelCase(match.data.view) : "home";
+
+    render(store[view]);
+  },
+  after: match => {
+    const view = match?.data?.view ? camelCase(match.data.view) : "home";
+
+    if (view === "restaurant") {
+      document.querySelector("form").addEventListener("submit", event => {
+        event.preventDefault();
+
+        const inputList = event.target.elements;
+        console.log("Input Element List", inputList);
+
+        const requestData = {
+          restaurantName: inputList.restaurantName.value,
+          location: inputList.location.value,
+          type: inputList.type.value,
+          rating: inputList.rating.value,
+          anothertopic: inputList.anothertopic.value,
+        };
+
+        console.log("request Body", requestData);
+
+        axios
+          .post(`${process.env.API_URL}/restaurants`, requestData)
+          .then(response => {
+            store.restaurant.restaurants.push(response.data);
+            router.navigate("/restaurant");
+          })
+          .catch(error => {
+            console.log("It puked", error);
+          });
+      });
+    }
+
+    router.updatePageLinks();
+
+    // add menu toggle to bars icon in nav bar
+    document.querySelector(".fa-bars").addEventListener("click", () => {
+      document.querySelector("nav > ul").classList.toggle("hidden--mobile");
+    });
+  },
+});
 
 // old code unnecessary routes and tests
 // router.on({
