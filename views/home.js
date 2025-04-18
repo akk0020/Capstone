@@ -8,7 +8,15 @@ export default state => html`
         <p>
           find local restaurants
         </p>
-        <a href="#bannerButton" class="cta-btn">quick search?</a>
+        <!-- <a href="#bannerButton" class="cta-btn">quick search?</a> -->
+        <div class="search-bar">
+          <input
+            type="text"
+            id="quickSearch"
+            placeholder="quick search ....."
+          />
+          <button>&#11088;</button>
+        </div>
       </div>
     </section>
   </header>

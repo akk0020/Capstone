@@ -1,7 +1,7 @@
 import html from "html-literal";
 
 export default state => html`
-  <section id="restaurant">
+  <section class="restaurant">
     <form id="restaurant" method="POST" action="">
       <h2>Add restaurant</h2>
       <div>
