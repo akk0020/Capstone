@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import restaurants from "./routers/Restaurants.js";
+import restaurants from "./routers/restaurants.js";
 
 dotenv.config();
 
