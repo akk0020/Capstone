@@ -19,7 +19,6 @@ const restSchema = new mongoose.Schema({
   rating: {
     type: Number,
     required: true,
-    validate: /^[0-10 ]*$/,
   },
   anothertopic: {
     type: String,
