@@ -55,5 +55,26 @@ export default state => html`
       </div>
       <input type="submit" name="submit" value="Submit Restaurant" />
     </form>
+
+    <hr />
+
+    <section id="restaurant">
+      <h2>Restaurants</h2>
+      <ul>
+        ${state.restaurants
+          .map(
+            restaurant => `
+        <li>
+          <h3>${restaurant.restaurantName}</h3>
+          <p>Location: ${restaurant.location}</p>
+          <p>Type: ${restaurant.type}</p>
+          <p>Rating: ${restaurant.rating} ⭐</p>
+          <p>${restaurant.anothertopic}</p>
+        </li>
+      `
+          )
+          .join("")}
+      </ul>
+    </section>
   </section>
 `;

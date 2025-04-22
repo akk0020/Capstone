@@ -4,7 +4,7 @@ export default state => html`
   <header>
     <section class="jumbotron">
       <div class="jumbotron-content">
-        <h2>tasteLocal</h2>
+        <h2>tastelocal</h2>
         <p>
           find local restaurants
         </p>
@@ -23,7 +23,7 @@ export default state => html`
 
   <div class="homepage-bottom">
     <h2>
-      tasteLocal is your go-to guide for finding local trusted restaurants.
+      tastelocal is your go-to guide for finding local trusted restaurants.
     </h2>
     <p>taste something local</p>
   </div>

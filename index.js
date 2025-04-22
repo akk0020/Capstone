@@ -26,6 +26,43 @@ function attachNavToggle() {
   }
 }
 
+// Function to fetch a random meal
+const fetchRandomMeal = () => {
+  axios
+    .get("https://www.themealdb.com/api/json/v1/1/random.php")
+    .then(response => {
+      // This is where we process the meal data
+      const meal = response.data.meals[0];
+      console.log(meal); // Log the meal data to the console for now
+
+      // Call a function to display the meal on the page (you'll create this next)
+      displayRandomMeal(meal);
+    })
+    .catch(error => {
+      console.error("Error fetching random meal:", error);
+    });
+};
+
+// Function to display the meal data on your page
+const displayRandomMeal = meal => {
+  const mealContainer = document.querySelector("#meal-container");
+
+  // Example of how you could structure the HTML for displaying the meal
+  mealContainer.innerHTML = `
+    <h2>${meal.strMeal}</h2>
+    <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+    <p><strong>Category:</strong> ${meal.strCategory}</p>
+    <p><strong>Area:</strong> ${meal.strArea}</p>
+    <p><strong>Instructions:</strong> ${meal.strInstructions}</p>
+    <a href="${meal.strSource}" target="_blank">Recipe Source</a>
+  `;
+};
+
+// Call fetchRandomMeal on page load or based on a trigger
+document.addEventListener("DOMContentLoaded", () => {
+  fetchRandomMeal(); // Fetch a random meal when the page loads
+});
+
 router.hooks({
   // We pass in the `done` function to the before hook handler to allow the function to tell Navigo we are finished with the before hook.
   // The `match` parameter is the data that is passed from Navigo to the before hook handler with details about the route being accessed.
@@ -104,12 +141,21 @@ router.hooks({
         axios
           .post(`${process.env.API_URL}/restaurants`, requestData)
           .then(response => {
-            store.restaurant.restaurants.push(response.data);
+            console.log("request postrestaurant", response.data);
             router.navigate("/restaurant");
           })
           .catch(error => {
             console.log("It puked", error);
           });
+
+        // axios.get(`${process.env.API_URL}/restaurants`).then(response => {
+        //   store.restaurant.restaurants.push(response.data);
+        //   console.log("request data", store.restaurant.restaurants);
+        // });
+        axios.get(`${process.env.API_URL}/restaurants`).then(response => {
+          store.restaurant.restaurants = response.data;
+          console.log("Updated restaurant list:", store.restaurant.restaurants);
+        });
       });
     }
 
