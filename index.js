@@ -122,7 +122,8 @@ router.hooks({
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
 
     if (view === "restaurant") {
-      document.querySelector("form").addEventListener("submit", event => {
+      let form = document.querySelector("form");
+      form.addEventListener("submit", event => {
         event.preventDefault();
 
         const inputList = event.target.elements;
@@ -142,7 +143,7 @@ router.hooks({
           .post(`${process.env.API_URL}/restaurants`, requestData)
           .then(response => {
             console.log("request postrestaurant", response.data);
-            router.navigate("/restaurant");
+            form.reset();
           })
           .catch(error => {
             console.log("It puked", error);
