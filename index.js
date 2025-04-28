@@ -51,7 +51,7 @@ router.hooks({
             done();
           });
         break;
-
+      case "restaurant":
         // New Axios get request utilizing already made environment variable
         axios
           .get(`${process.env.API_URL}/restaurants`)
@@ -76,16 +76,30 @@ router.hooks({
       // break is not needed since it is the last condition, if you move default higher in the stack then you should add the break statement.
     }
   },
-  already: match => {
+  already: async match => {
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
+    if (view === "restaurant") {
+      console.log("already hook restaurant");
+      await axios
+        .get(`${process.env.API_URL}/restaurants`)
+        .then(response => {
+          // Storing retrieved data in state
+          // The dot chain variable access represents the following {storeFolder.stateFileViewName.objectAttribute}
+          store.restaurant.restaurants = response.data;
+          console.log(
+            "store.restaurant.restaurants",
+            store.restaurant.restaurants
+          );
+        })
+        .catch(error => {
+          console.log("It puked", error);
+        });
+    }
 
     render(store[view]);
-  },
-  after: match => {
-    const view = match?.data?.view ? camelCase(match.data.view) : "home";
-
     if (view === "restaurant") {
-      document.querySelector("form").addEventListener("submit", event => {
+      let form = document.querySelector("form");
+      form.addEventListener("submit", event => {
         event.preventDefault();
 
         const inputList = event.target.elements;
@@ -104,7 +118,8 @@ router.hooks({
         axios
           .post(`${process.env.API_URL}/restaurants`, requestData)
           .then(response => {
-            store.restaurant.restaurants.push(response.data);
+            console.log("request postrestaurant", response.data);
+            form.reset();
             router.navigate("/restaurant");
           })
           .catch(error => {
@@ -112,7 +127,64 @@ router.hooks({
           });
       });
     }
+  },
+  after: match => {
+    const view = match?.data?.view ? camelCase(match.data.view) : "home";
 
+    if (view === "restaurant") {
+      let form = document.querySelector("form");
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+
+        const inputList = event.target.elements;
+        console.log("Input Element List", inputList);
+
+        const requestData = {
+          restaurantName: inputList.restaurantName.value,
+          location: inputList.location.value,
+          type: inputList.type.value,
+          rating: inputList.rating.value,
+          anothertopic: inputList.anothertopic.value,
+        };
+
+        console.log("request Body", requestData);
+
+        axios
+          .post(`${process.env.API_URL}/restaurants`, requestData)
+          .then(response => {
+            console.log("request postrestaurant", response.data);
+            form.reset();
+            router.navigate("/restaurant");
+          })
+          .catch(error => {
+            console.log("It puked", error);
+          });
+      });
+    }
+    if (view === "contact") {
+      document
+        .querySelector("#emailForm")
+        .addEventListener("submit", async e => {
+          e.preventDefault();
+
+          const inputList = e.target.elements;
+          const requestData = {
+            name: inputList.to.value,
+            email: inputList.do.value,
+            message: inputList.message.value,
+          };
+          try {
+            await axios
+              .post(`${process.env.API_URL}/sendMail`, requestData)
+              .then(response => {
+                alert(response.data.message);
+              });
+          } catch (error) {
+            console.error(error.message);
+            alert("Failed to send");
+          }
+        });
+    }
     router.updatePageLinks();
 
     // add menu toggle to bars icon in nav bar
@@ -121,53 +193,6 @@ router.hooks({
     });
   },
 });
-
-// old code unnecessary routes and tests
-// router.on({
-//   "/": () => render(),
-//   // The :view slot will match any single URL segment that appears directly after the domain name and a slash
-//   "/:view": function(match) {
-//     // If URL is '/about-me':
-//     // match.data.view will be 'about-me'
-//     // Using Lodash's camelCase to convert kebab-case to camelCase:
-//     // 'about-me' becomes 'aboutMe'
-//     const view = match?.data?.view ? camelCase(match.data.view) : "home";
-
-//     // If the store import/object has a key named after the view
-//     if (view in store) {
-//       // Then the invoke the render function using the view state, using the view name
-//       render(store[view]);
-//     } else {
-//       // If the store
-//       render(store.viewNotFound);
-//       console.log(`View ${view} not defined`);
-//     }
-//     // Now we can use viewName to find the correct state in our store
-//     // If viewName is 'aboutMe', it will look for store.aboutMe (not needed)
-//     const state = store[view];
-
-//     // Finally, render the page with the state (not needed)
-//     render(state);
-//   },
-// });
-
-// // adding one route
-// router.on("/", () => console.log("Visiting Home Page")).resolve();
-
-// // adding more than one route
-// router.on({
-//   routeOne: () => console.log("Visiting Route One"),
-//   routeTwo: () => console.log("Visiting Route Two"),
-// });
-
-// router.on(":x", defaultParam => defaultParam);
-// // returns:
-// // {x: "<route entered in URL>"}
-
-// // When the route http://localhost:1234/home is hit then match.data.view will return "home"
-// router.on(":view", match => match.data.view);
-// // returns:
-// // "<route entered in URL>"
 
 router
   .on({
@@ -187,5 +212,3 @@ router
     },
   })
   .resolve();
-
-// https://www.themealdb.com/api.php maybe use this for API? ehhhhh

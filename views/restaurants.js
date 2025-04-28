@@ -1,7 +1,7 @@
 import html from "html-literal";
 
 export default state => html`
-  <section id="restaurant">
+  <section class="restaurant">
     <form id="restaurant" method="POST" action="">
       <h2>Add restaurant</h2>
       <div>
@@ -55,5 +55,22 @@ export default state => html`
       </div>
       <input type="submit" name="submit" value="Submit Restaurant" />
     </form>
+
+    <div>
+      <table id="restaurants">
+        <tr>
+          <th scope="col">Restaurant Name</th>
+          <th scope="col">Location</th>
+          <th scope="col">Type</th>
+          <th scope="col">Rating</th>
+          <th scope="col">Another Topic</th>
+        </tr>
+        ${state.restaurants
+          .map(restaurant => {
+            return `<tr><td>${restaurant.restaurantName}</td><td>${restaurant.location}</td><td>${restaurant.type}</td><td>${restaurant.rating}</td><td>${restaurant.anothertopic}</td></tr>`;
+          })
+          .join("")}
+      </table>
+    </div>
   </section>
 `;

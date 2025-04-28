@@ -1,9 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
+dotenv.config();
 import mongoose from "mongoose";
 import restaurants from "./routers/restaurants.js";
-
-dotenv.config();
+import sendMail from "./routers/sendMail.js";
 
 const PORT = process.env.PORT || 4040;
 
@@ -44,6 +44,7 @@ app.use(cors);
 app.use(express.json());
 app.use(logging);
 app.use("/restaurants", restaurants);
+app.use("/sendMail", sendMail);
 
 app.get("/status", (request, response) => {
   response.send(JSON.stringify({ message: "Service healthy" }));

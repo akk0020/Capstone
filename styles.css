@@ -84,37 +84,27 @@ main {
 
 /* Contact Page */
 form {
-  max-width: 400px;
-  margin: 0 auto;
+  max-width: 460px;
+  margin: 1 auto;
   background: white;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-form label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
+  border-radius: 19px;
 }
 
 form input,
 form textarea {
-  width: 100%;
-  color: black;
-  padding: 8px;
+  width: 98%;
+  color: rgb(24, 14, 98);
   margin-top: 5px;
-  border-radius: 4px;
 }
 
 .contact-us {
   background-color: #0d0842;
   color: #ffffff;
-  padding: 2rem 6rem;
+  padding: 3rem 6rem;
   border-radius: 5rem;
   max-width: 900px;
   margin: 4rem auto;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
   font-family: poppins;
 }
 
@@ -129,7 +119,7 @@ form textarea {
 .contact-us p {
   margin-bottom: 2rem;
   color: #ffffff;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .contact-us form {
@@ -146,14 +136,15 @@ form textarea {
   border-radius: 0.5rem;
   padding: 0.7rem 0.2rem;
   font-size: 1rem;
+  font-family: monospace;
 }
 
 .contact-us button {
   background-color: #bb2436;
   color: #ffffff;
   border: none;
-  padding: 0.8rem;
-  font-size: 1.3rem;
+  padding: 0.5rem;
+  font-size: 1.1rem;
   border-radius: 4rem;
   font-weight: bold;
 }
@@ -235,7 +226,7 @@ footer {
   }
 }
 
-/* Jumbotron Styles */
+/* jumbotron styles */
 .jumbotron {
   background: url("docs/images/banner.png") no-repeat center center/cover;
   color: rgb(255, 255, 255);
@@ -265,4 +256,109 @@ footer {
 
 .cta-btn:hover {
   background-color: #555;
+}
+
+/* restaurant page styles */
+#restaurant {
+  background-color: #0d0842;
+  color: #ffffff;
+  padding: 2rem 6rem;
+  border-radius: 5rem;
+  max-width: 900px;
+  margin: 4rem auto;
+  font-family: poppins;
+}
+
+#restaurant form {
+  max-width: 400px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 5px;
+}
+
+#restaurant h2 {
+  font-size: 2rem;
+  margin-bottom: 2.7rem;
+  color: white;
+  text-transform: lowercase;
+  letter-spacing: 1.5px;
+}
+
+/* #restaurant form div {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+} */
+
+#restaurant label {
+  display: flex;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#restaurant input[type="text"],
+#restaurant input[type="number"] {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 1rem;
+}
+
+#restaurant input[type="submit"] {
+  background-color: #bb2436;
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  border-radius: 4rem;
+  font-weight: bold;
+}
+
+/* search bar */
+.search-bar {
+  margin-top: 3vh;
+}
+
+/* restaurant table */
+
+/* Table wrapper for spaces */
+#restaurants {
+  width: 100%;
+  border-collapse: separate;
+  margin-top: 5rem;
+  font-family: poppins;
+}
+
+/* Table headers */
+#restaurants th {
+  background-color: #133365;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 1.1rem;
+  letter-spacing: 0.4px;
+}
+
+/* Table rows */
+#restaurants td {
+  padding: 18px;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+/* Hover effect on rows */
+#restaurants tr:hover {
+  background-color: #061842;
+  color: white;
+  transition: 1s;
+}
+/* No transition on odd rows */
+#restaurants tr:nth-child(even) {
+  background-color: white;
+  transition: none;
+}
+/* Zebra stripe */
+#restaurants tr:nth-child(even) {
+  background-color: #868689ac;
 }

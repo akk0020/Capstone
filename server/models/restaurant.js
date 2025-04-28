@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const restSchema = new mongoose.Schema({
+const restaurantSchema = new mongoose.Schema({
   restaurantName: {
     type: String,
     required: true,
@@ -25,6 +25,6 @@ const restSchema = new mongoose.Schema({
   },
 });
 
-const restaurants = mongoose.model("restaurant", restSchema);
+const restaurants = mongoose.model("restaurant", restaurantSchema);
 
 export default restaurants;
