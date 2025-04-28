@@ -319,3 +319,46 @@ footer {
 .search-bar {
   margin-top: 3vh;
 }
+
+/* restaurant table */
+
+/* Table wrapper for spaces */
+#restaurants {
+  width: 100%;
+  border-collapse: separate;
+  margin-top: 5rem;
+  font-family: poppins;
+}
+
+/* Table headers */
+#restaurants th {
+  background-color: #133365;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 1.1rem;
+  letter-spacing: 0.4px;
+}
+
+/* Table rows */
+#restaurants td {
+  padding: 18px;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+/* Hover effect on rows */
+#restaurants tr:hover {
+  background-color: #061842;
+  color: white;
+  transition: 1s;
+}
+/* No transition on odd rows */
+#restaurants tr:nth-child(even) {
+  background-color: white;
+  transition: none;
+}
+/* Zebra stripe */
+#restaurants tr:nth-child(even) {
+  background-color: #868689ac;
+}

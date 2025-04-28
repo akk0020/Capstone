@@ -9,13 +9,14 @@ export default state => html`
           find local restaurants
         </p>
         <!-- <a href="#bannerButton" class="cta-btn">quick search?</a> -->
-        <div class="search-bar">
+        <!-- <div class="search-bar">
           <input
             type="text"
             id="quickSearch"
-            placeholder="quick search ....."
-          />
-          <button>&#11088;</button>
+            placeholder="quick search ....." -->
+          <!-- /> -->
+          <button>&#11088;<a href="/meal">View Random Meal</a>
+          </button>
         </div>
       </div>
     </section>

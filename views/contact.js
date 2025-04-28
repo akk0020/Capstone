@@ -6,10 +6,16 @@ export default state => html`
     <p>
       Have questions and/or suggestions? Leave a message here.
     </p>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" rows="4" required></textarea>
+    <form id="emailForm">
+      <input id="to" type="text" placeholder="Your Name" required />
+      <input id="do" type="email" placeholder="Your Email" required />
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Your Message"
+        rows="4"
+        required
+      ></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>

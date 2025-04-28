@@ -67,6 +67,18 @@ router.delete("/:id", async (request, response) => {
   }
 });
 
+// delete all
+router.delete("/", async (req, res) => {
+  try {
+    const result = await Restaurant.deleteMany({});
+    res.status(200).json({
+      message: `Deleted ${result.deletedCount} restaurant(s).`,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to delete restaurants", error });
+  }
+});
+
 // Update a single restaurant by ID
 router.put("/:id", async (request, response) => {
   try {
