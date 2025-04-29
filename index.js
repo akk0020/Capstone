@@ -179,9 +179,12 @@ router.hooks({
               .then(response => {
                 alert(response.data.message);
               });
+            e.target.reset();
           } catch (error) {
             console.error(error.message);
             alert("Failed to send");
+          } finally {
+            e.target.reset();
           }
         });
     }
